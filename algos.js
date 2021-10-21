@@ -116,5 +116,13 @@ function anagram1(str1, str2) {
   return true;
 }
 
-function sumZero(arr) {}
-console.log([-3, -2, -1, 0, 1, 2, 3]);
+function uniqueVal(arr) {
+  let unique = [];
+  for (x of arr) {
+    if (!unique.includes(x)) {
+      unique.push(x);
+    }
+  }
+  return unique;
+}
+console.log(uniqueVal([1, 2, 2, 2, 3, 3, 3]));
