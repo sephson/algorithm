@@ -30,3 +30,53 @@ frequency counters, two pointer problems, divide and conquer
 # Problem Solving Pattern: Sliding Window
 
 This pattern involves creating a window which can either be an array or number from one position to another. Depending on a certain condition, the window either increases or closes (and a new window is created), very useful for keeping track of a subset of data in an array/string
+
+# Max Sub Array
+
+([1, 3, 5, 2, 3, 4], 3)
+
+# Add the first three digits
+
+# Subtract sum from the first digit and add the next digit
+
+# in the case above 1 + 3 + 5 = 9
+
+# subtract 1 and add 2 = which is 3 + 5 + 2 = 10
+
+# 5 + 2 + 3 = 10 . . .and aso on till we get the largest sub array
+
+# Divide and Conquer
+
+This pattern sgnificantly reduces the time complexity. Involves dividing data into smaller chunks and repeating process for small sub data
+
+# Recursion
+
+A process that calls itself
+
+The Call Stack - when a function is called is placed on the top of a call stack. when javascript sees return keyword, the function is removed from the top of the call stack
+
+stack - first in first out
+
+recursive functions invoke the same function with a different input until you reach the base case. The base case is where the recursion stops
+
+# sumRange explanation recursion
+
+function sumRange(num) {
+if (num === 1) return 1;
+return num + sumRange(num - 1);
+}
+
+# Explanation
+
+base case is if num is 1 return 1
+
+sumRange(3)
+return 3 + sumRange(3-1)
+return 2 + sumRange(2-1)
+return 1
+3+2+1 = 6
+
+# Common problems with recursion
+- Wrong base case
+- returning the wrong thing
+- stack overflow

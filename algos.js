@@ -125,4 +125,59 @@ function uniqueVal(arr) {
   }
   return unique;
 }
-console.log(uniqueVal([1, 2, 2, 2, 3, 3, 3]));
+
+function maxSubArray(arr, num) {
+  let maxSum = 0;
+  let tempSum = 0;
+
+  for (i = 0; i < num; i++) {
+    maxSum += arr[i];
+  }
+  tempSum = maxSum;
+  for (i = num; i < arr.length; i++) {
+    tempSum = tempSum - arr[i - num] + arr[i];
+    maxSum = Math.max(maxSum, tempSum);
+  }
+  return maxSum;
+}
+
+//divide and conquer
+function search(arr, target) {
+  let left = arr[0];
+  let right = arr.length - 1;
+  let mid = Math.floor((right + left) / 2);
+
+  while (left <= right && arr[mid] !== target) {
+    if (arr[mid] < target) {
+      left = mid + 1;
+    } else if (arr[mid] > target) {
+      right = mid - 1;
+    }
+    mid = Math.floor((right + left) / 2);
+  }
+  return arr[mid] === target ? mid : -1;
+}
+
+//recursion
+function countDown(num) {
+  if (num <= 0) {
+    console.log("done");
+    return;
+  }
+
+  console.log(num);
+  num--;
+  countDown(num);
+}
+
+function sumRange(num) {
+  if (num === 1) return 1;
+  return num + sumRange(num - 1);
+}
+
+function factorial(num) {
+  if (num === 1) return 1;
+
+  return num * factorial(num - 1);
+}
+console.log(factorial(4));
