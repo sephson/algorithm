@@ -180,4 +180,38 @@ function factorial(num) {
 
   return num * factorial(num - 1);
 }
-console.log(factorial(4));
+//recursion using helper methods
+function collectOdd(arr) {
+  let odd = [];
+
+  function helper(input) {
+    if (input.length === 0) return;
+    if (input[0] % 2 !== 0) {
+      odd.push(input[0]);
+    }
+    helper(input.slice(1));
+  }
+
+  helper(arr);
+  return odd;
+}
+
+//SORTING
+//bubble sort
+function bubbleSort(arr) {
+  let swap;
+  for (i = 0; i < arr.length - 1; i++) {
+    swap = false;
+    for (j = 0; j < arr.length - 1; j++) {
+      console.log(`compare ${arr[j]} and ${arr[j + 1]}`);
+      if (arr[j] > arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        swap = true;
+      }
+    }
+    if (swap === false) break;
+    console.log(`One pass`);
+  }
+  return arr;
+}
+console.log(bubbleSort([5, 1, 2, 3, 4]));
