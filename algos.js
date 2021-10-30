@@ -225,7 +225,7 @@ function mergeArray(arr1, arr2){
       merge.push(arr1[i])
       i++ 
     }
-    else if(arr2[j]<arr1[i]){
+    else {
       merge.push(arr2[j])
       j++
     }
@@ -240,8 +240,22 @@ function mergeArray(arr1, arr2){
   }
   return merge
 }
-console.log(mergeArray([1, 5], [2, 3, 7, 9 ]))
 
-// function mergeSort(){
+function mergeSort(arr){
+  if(arr.length <= 1 )  return arr
+  let left = 0
+  let right = arr.length
+  let mid = Math.floor((left + right)/2)
 
-// }
+  let split1 = arr.slice(0, mid)
+  let split2 = arr.slice(mid)
+  let single = mergeSort(split1)
+  let single2 = mergeSort(split2)
+
+  return mergeArray(single2, single)
+
+}
+console.log(mergeSort([3, 27, 9, 14, 90, 1]))
+
+
+//quick sort
