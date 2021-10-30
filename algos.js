@@ -214,4 +214,34 @@ function bubbleSort(arr) {
   }
   return arr;
 }
-console.log(bubbleSort([5, 1, 2, 3, 4]));
+
+//Merge sort
+function mergeArray(arr1, arr2){
+  let merge = []
+  let i = 0
+  let j = 0
+  while(i < arr1.length  && j < arr2.length ){
+    if(arr1[i]<arr2[j]){
+      merge.push(arr1[i])
+      i++ 
+    }
+    else if(arr2[j]<arr1[i]){
+      merge.push(arr2[j])
+      j++
+    }
+  }
+  while(i < arr1.length){
+    merge.push(arr1[i])
+    i++
+  }
+  while(j < arr2.length){
+    merge.push(arr2[j])
+    j++
+  }
+  return merge
+}
+console.log(mergeArray([1, 5], [2, 3, 7, 9 ]))
+
+// function mergeSort(){
+
+// }

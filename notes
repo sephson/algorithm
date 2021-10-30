@@ -138,3 +138,33 @@ An algorithm where the larger values bubbles to the top one at a time.
 - start an inner loop with a variable called j from the beginning until i - 1
 - if arr[j] is greater than arr[j+1], swap those two values
 - return sorted array
+
+# selection sort
+
+simiar to bubble sort, but instead of first placing large values into sorted position, it places small values into sorted position
+
+# selection sort pseudocode
+
+- store the first element as the smallest number
+- compare this item to the next item in the array until you find a smalller number
+- if a smaller number is found, designate its index to the new minimum and continue till the end of the array
+- if the "minimum" is not the value index you initially began with swap the two values
+- repeat this with the next element until the array is sorted
+
+# merge sort
+- works by decomposing an array into smaller arrays of 0 or 1 elements, then building up a newly sorted array
+- exploits the fact that arrays of 0 por 1 element are always sorted 
+
+[3, 4, 1, 2]
+split
+[3, 4] [1, 2]
+split 
+[3] [4] [1] [2]
+merge
+which is smaller
+[3, 4] [1, 2]
+[1, 2, 3, 4]
+
+# Pseudocode merge sort
+
+
