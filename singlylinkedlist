@@ -1,0 +1,6 @@
+# LinkedList
+Data structure that contains  head, tail, and length property
+LinkedList consist of nodes, each node pointing the another node or null. It has no indexes
+ 
+Linked list is perfect for insertion and deletion at the beginning or middle cos for array you have 
+adding element to the beginning or middle causes reindexing of all elements
