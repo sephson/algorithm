@@ -72,23 +72,69 @@ class sll {
   //find node based on index passed as arg
   find(index) {
     let count = 0;
-    if (count < 0 || count >= this.length) return null;
+    if (index < 0 || index >= this.length) return null;
     if (!this.head) return undefined;
     let current = this.head;
-    while (current.next) {
-      if (count === index) {
-        return current;
-      }
+    while (count !== index) {
+      current = current.next;
       count++;
     }
+    return current;
+  }
+  //replace existing value
+  set(index, val) {
+    let foundNode = this.find(index);
+    if (foundNode) {
+      foundNode.val = val;
+      return true;
+    }
+    return false;
+  }
+  // insert new value
+  insert(index, val) {
+    if (index < 0 || index > this.length) return false;
+    if (index === this.length) return !!this.push(val);
+    if (index === 0) return !!this.unshift(val);
+    let newNode = new Node(val);
+    let prev = this.find(index - 1);
+    let temp = prev.next;
+    prev.next = newNode;
+    newNode.next = temp;
+    this.length++;
+    return true;
+  }
+  remove(index) {
+    if (index < 0 || index > this.length) return false;
+    if (index === this.length) return this.pop(val);
+    if (index === 0) return this.shift(val);
+    let prev = this.find(index - 1);
+    let del = prev.next;
+    prev.next = del.next;
+    this.length--;
+    return del;
+  }
+  reverse() {
+    let node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+    let next;
+    let previous = null;
+    let count = 0;
+    while (count < this.length) {
+      next = node.next;
+      node.next = previous;
+      previous = node;
+      node = next;
+      count++;
+    }
+    return this;
   }
 }
 
 let list = new sll();
 
 list.unshift(1);
+list.unshift("Disu");
 list.unshift(2);
-list.unshift(3);
-list.unshift(4);
-
-console.log(list, find(1));
+list.reverse();
+console.log(list);
