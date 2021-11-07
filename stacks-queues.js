@@ -21,10 +21,22 @@ class Stack {
     } else {
       temp = this.first;
       this.first = newNode;
-      newNode.next = temp;
+      this.first.next = temp;
       this.size++;
     }
-    return this;
+    return this.size;
+  }
+  pop() {
+    let temp;
+    if (!this.first) return null;
+    else if (this.size === 1) {
+      return null;
+    } else {
+      temp = this.first;
+      this.first = this.first.next;
+      this.size--;
+    }
+    return temp.value;
   }
 }
 
@@ -32,6 +44,5 @@ let stack = new Stack();
 
 stack.push(1);
 stack.push(2);
-stack.push(3);
 
-console.log(stack);
+console.log(stack.pop());
