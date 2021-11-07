@@ -29,6 +29,15 @@ class Queue {
 
   dequeue() {
     //first thing added in
+    let temp;
+    if (this.size <= 1) {
+      this.size--;
+      return null;
+    } else {
+      this.first = this.first.next;
+      this.size--;
+    }
+    return temp.value;
   }
 }
 
@@ -36,5 +45,7 @@ let q = new Queue();
 
 q.enqueue("first");
 q.enqueue("second");
+q.enqueue("third");
+q.enqueue("fourth");
 
-console.log(q);
+console.log(q.dequeue().value);
